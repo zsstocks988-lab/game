@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from lucky213.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Aug 2025 18:21:32 GMT -->
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="manifest" href="manifest.json">
+  <title>lucky101</title>
+
+  <!-- open graph protocol -->
+  <meta property="og:title" content="Share with your friends, get exclusive gifts👇👇👇"/>
+
+  <!-- meta tag description -->
+  <meta name="description" content="Super jackpot |  Online Casino |  Online Slot Games | Crypto to real exchange |  Aviator Game | Fortune Tiger | Fortune Ox | Fortune Rabbit | Come try your luck!👇👇👇">
+   <!-- open graph description -->
+  <meta name="og:description" content="Super jackpot |  Online Casino |  Online Slot Games | Crypto to real exchange |  Aviator Game | Fortune Tiger | Fortune Ox | Fortune Rabbit | Come try your luck!👇👇👇">
+   <!-- og:img url for both meta tag and open graph -->
+  <meta name="og:image" content="../res.bgycryextrukjvyghhbtyj.com/H5/icon.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="this is  twitter card" />
+  <meta name="twitter:site" content="this is  twitter site" />
+  <meta name="twitter:title" content="Share with your friends, get exclusive gifts👇👇👇" />
+  <meta name="twitter:description" content="Super jackpot |  Online Casino |  Online Slot Games | Crypto to real exchange |  Aviator Game | Fortune Tiger | Fortune Ox | Fortune Rabbit | Come try your luck!👇👇👇"/>
+  <meta name="twitter:image" content="../res.bgycryextrukjvyghhbtyj.com/H5/icon.png" />
+
+  <link rel="icon" href="favicon.ico">
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"/>
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes"/>
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app">
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+
+
+
+</head>
+<body>
+  <div id="GameDiv" cc_exact_fit_screen="true">
+      <div id="Cocos3dGameContainer">
+        <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
+      </div>
+    </div>
+
+    
+    <div id="splash">
+      <div class="progress-bar stripes">
+        <span style="width: 0%"></span>
+      </div>
+    </div>
+
+
+
+<script type="text/javascript">
+    (function () {
+        var userAgent = navigator.userAgent.toLowerCase();
+        // isMobile
+        var isMobile = /mobile|android|iphone|ipad|phone/i.test(userAgent);
+        var gameDiv = document.getElementById('GameDiv');
+        var body = document.getElementsByTagName('body')[0];
+        let orientation = 2 // 1:portrait 2:landscape
+        let isLobby = true 
+        //pc browser
+        if (!isMobile) {
+            function setGameDiv(){
+                var clientWidth = document.documentElement.clientWidth;
+                var clientHeight = document.documentElement.clientHeight;
+                var gameWidth;
+                var gameHeight;
+               
+
+                if(isLobby) // lobby full screen
+                {
+                    gameWidth = clientWidth + 'px'
+                    gameHeight = clientHeight + 'px'
+                }
+                else //game
+                {
+                    if(orientation == 1) //portrait
+                    {
+                        var widthRatio = clientWidth / 750;
+                        var heightRatio = clientHeight /  1334;
+                        gameWidth = false ? '100%' :  750 * heightRatio;
+                        gameHeight = false ?  1334 * widthRatio : '100%';
+                        if(gameWidth != '100%') {
+                            gameWidth += 'px';
+                        }
+                        if(gameHeight != '100%') {
+                            gameHeight += 'px';
+                        }
+                    }
+                    else //landscape
+                    {
+                        gameWidth = clientWidth + 'px'
+                        gameHeight = clientHeight + 'px'
+                    }
+                    
+                }
+                
+                gameDiv.style.width = gameWidth
+                gameDiv.style.height = gameHeight
+                body.style.alignItems = 'center';
+                body.style.justifyContent = 'center';
+            }
+            setGameDiv();
+            window.onresize = function () {
+                setGameDiv();
+            }
+            //change canvas size
+            window.addEventListener('changeCanvasSize', (event)=> {
+                orientation = event.detail.orientation;
+                isLobby = event.detail.isLobby;
+            });
+        }
+    })();
+</script>
+
+<script>
+  //PWA
+  if (navigator.standalone || window.matchMedia("(display-mode: standalone)").matches) {
+    let params = localStorage.getItem('pwaParam');
+    if (params)
+    {
+      window.location.href = `${window.location.origin}${params}`;
+    }
+    // window.location.href = window.location.origin + localStorage.getItem('pwaParam');
+  }
+  else
+  {
+      //PWA install
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('sw.js');
+    }
+    window.addEventListener('beforeinstallprompt', function (e) {
+      //save params
+      const params = window.location.search;
+      localStorage.setItem('pwaParam', params);
+      // save event
+      globalThis.dfdPrompt = e;
+      // preventDefault
+      e.preventDefault();
+      return false;
+    });
+  }
+</script>
+<script src="../browser.sentry-cdn.com/7.93.0/bundle.tracing.min.js"
+integrity="sha384-SPq2en7EMouQY/MGYLYA/shBLhoyYScgNTU8crQBLY4Aa8evvIXgmB6gSnUIAd/n" crossorigin="anonymous"></script>
+<script src="../browser.sentry-cdn.com/7.93.0/httpclient.min.js"
+  integrity="sha384-0dFgiaR3IklZXnDwNIepXBMqh91Drukh+ZdlvZyzBBKUA0/YwWUfWSL89FLnQ8ZP" crossorigin="anonymous"></script>
+
+<script>
+  //sentry dsn key
+  const sentryDsnKey = ""
+  window.onload = () => {
+    if (sentryDsnKey != null && sentryDsnKey.length > 0) {
+      Sentry.init({
+        dsn: sentryDsnKey,
+        integrations: [new Sentry.Integrations.HttpClient(
+          {
+            failedRequestStatusCodes:[404,599]
+          }
+        )],
+      });
+    }
+  }
+
+  //error handler
+  window.addEventListener('error', (event) => {
+    //sentry report
+    if (sentryDsnKey != null && sentryDsnKey.length > 0) {
+      var msg = event.message? event.message:`error ${event.target.tagName}:${event.target.src}`
+      Sentry.captureMessage(msg, "error");
+    }
+  }, true)
+
+
+  //PWA install
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('sw.js');
+  }
+  window.addEventListener('beforeinstallprompt', function (e) {
+    // save event
+    globalThis.dfdPrompt = e;
+    // preventDefault
+    e.preventDefault();
+    return false;
+});
+
+</script>
+
+
+<!-- Polyfills bundle. -->
+<script src="src/polyfills.bundle.5adbf.js" charset="utf-8"> </script>
+
+<!-- SystemJS support. -->
+<script src="src/system.bundle.543e6.js" charset="utf-8"> </script>
+
+<!-- Import map -->
+<script src="src/import-map.c5050.json" type="systemjs-importmap" charset="utf-8"> </script>
+
+<script>
+    System.import('index.8b43f.js').catch(function(err) { console.error(err);location.reload(true); })
+</script>
+
+
+</body>
+
+<!-- Mirrored from lucky213.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Aug 2025 18:21:37 GMT -->
+</html>
